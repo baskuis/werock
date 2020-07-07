@@ -1,0 +1,190 @@
+[
+    {
+        "table": "werock_visitors",
+        "engine": "MyISAM",
+        "collation": "latin1",
+        "row_format": "Dynamic",
+        "fields": [
+            {
+                "name": "werock_visitor_id",
+                "type": "int(6)",
+                "null": "NO",
+                "default": null,
+                "extra": "auto_increment",
+                "comments": ""
+            },
+            {
+                "name": "werock_visitor_hash",
+                "type": "varchar(155)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Visitor Hash"
+            },
+            {
+                "name": "werock_visitor_created",
+                "type": "bigint(10)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=First Visit"
+            },
+            {
+                "name": "werock_visitor_hits",
+                "type": "int(6)",
+                "null": "NO",
+                "default": 0,
+                "extra": "",
+                "comments": "label=Visitor Hits"
+            },
+            {
+                "name": "werock_visitor_ip",
+                "type": "bigint(12)",
+                "null": "NO",
+                "default": "0",
+                "extra": "",
+                "comments": "label=Visitor IP"
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_visitor_id"
+                ]
+            },
+            {
+                "name": "x_field",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_visitor_hash"
+                ]
+            }
+        ]
+    },
+    {
+        "table" : "werock_visitor_data",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_visitor_data_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "AUTO_INCREMENT",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_visitor_data_key",
+                "type" : "varchar(155)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Visitor data key"
+            },
+            {
+                "name" : "werock_visitor_data_date_added",
+                "type" : "datetime",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : ""
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_visitor_data_id"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_field",
+                "fields" : ["werock_visitor_data_key"]
+            }
+        ],
+        "comments" : "Visitor Data"
+    },
+    {
+        "table" : "werock_visitor_data_values",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_visitor_data_value_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "AUTO_INCREMENT",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_visitor_data_id",
+                "type" : "int(6)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Visitor data"
+            },
+            {
+                "name" : "werock_visitor_id",
+                "type" : "int(7)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Visitor"
+            },
+            {
+                "name" : "werock_visitor_data_value_text",
+                "type" : "varchar(255)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Value"
+            },
+            {
+                "name" : "werock_visitor_data_value_date_added",
+                "type" : "datetime",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_visitor_data_value_last_modified",
+                "type" : "timestamp",
+                "null" : "yes",
+                "default" : "CURRENT_TIMESTAMP",
+                "extra" : "ON UPDATE CURRENT_TIMESTAMP",
+                "comments" : ""
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_visitor_data_value_id"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_field",
+                "fields" : ["werock_visitor_id"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_visitor",
+                "fields" : ["werock_visitor_data_id"]
+            }
+        ],
+        "comments" : "Visitor Data Values"
+    }
+]

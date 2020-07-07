@@ -1,0 +1,70 @@
+[
+    {
+        "table" : "werock_language",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_language_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "AUTO_INCREMENT",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_language_key",
+                "type" : "varchar(155)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Key"
+            },
+            {
+                "name" : "werock_language_value",
+                "type" : "text",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Text"
+            },
+            {
+                "name" : "werock_language_language",
+                "type" : "varchar(85)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Langague"
+            },
+            {
+                "name" : "werock_language_date_added",
+                "type" : "datetime",
+                "null" : "no",
+                "default" : "",
+                "extra" : "",
+                "comments" : ""
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_language_id"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_field",
+                "fields" : ["werock_language_key"]
+            },
+            {
+                "type" : "FULLTEXT",
+                "method" : "",
+                "name" : "x_text",
+                "fields" : ["werock_language_key", "werock_language_value"]
+            }
+        ],
+        "comments" : "Langague"
+    }
+]

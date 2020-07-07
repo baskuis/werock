@@ -1,0 +1,92 @@
+[
+  {
+    "table": "werock_engagement_emails",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_engagement_email_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_visitor_id",
+        "type": "int(7)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Visitor"
+      },
+      {
+        "name": "werock_engagement_email_tag",
+        "type": "varchar(255)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Tag"
+      },
+      {
+        "name": "werock_engagement_email_name",
+        "type": "varchar(255)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Name"
+      },
+      {
+        "name": "werock_engagement_email_value",
+        "type": "varchar(255)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Email"
+      },
+      {
+        "name": "werock_engagement_email_last_sent",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Last received updates"
+      },
+      {
+        "name": "werock_engagement_email_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_engagement_email_last_modified",
+        "type": "timestamp",
+        "null": "YES",
+        "default": "CURRENT_TIMESTAMP",
+        "extra": "on update CURRENT_TIMESTAMP",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_engagement_email_id"
+        ]
+      },
+      {
+        "name": "x_lookup",
+        "type": "INDEX",
+        "method": "BTREE",
+        "fields": [
+          "werock_engagement_email_tag"
+        ]
+      }
+    ]
+  }
+]

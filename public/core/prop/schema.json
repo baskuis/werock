@@ -1,0 +1,77 @@
+[
+    {
+        "table": "werock_properties",
+        "engine": "MyISAM",
+        "collation": "latin1",
+        "row_format": "Dynamic",
+        "fields": [
+            {
+                "name": "werock_property_id",
+                "type": "int(5)",
+                "null": "NO",
+                "default": null,
+                "extra": "auto_increment",
+                "comments": ""
+            },
+            {
+                "name": "werock_property_key",
+                "type": "varchar(255)",
+                "null": "NO",
+                "default": null,
+                "extra": "",
+                "comments": "label=Key"
+            },
+            {
+                "name": "werock_property_value",
+                "type": "text",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Value"
+            },
+            {
+                "name": "werock_property_data_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_property_last_modified",
+                "type": "timestamp",
+                "null": "YES",
+                "default": "CURRENT_TIMESTAMP",
+                "extra": "on update CURRENT_TIMESTAMP",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_property_id"
+                ]
+            },
+            {
+                "name": "x_field",
+                "type": "UNIQUE",
+                "method": "BTREE",
+                "fields": [
+                    "werock_property_key"
+                ]
+            },
+            {
+                "name": "x_text",
+                "type": "FULLTEXT",
+                "method": "",
+                "fields": [
+                    "werock_property_key",
+                    "werock_property_value"
+                ]
+            }
+        ]
+    }
+]

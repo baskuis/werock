@@ -1,0 +1,179 @@
+[
+    {
+        "table" : "werock_intelligence",
+        "engine" : "TokuDB",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_intelligence_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "AUTO_INCREMENT",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_visitor_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "'0'",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_user_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "'0'",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_intelligence_data_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "'0'",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_intelligence_data_value_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "'0'",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_intelligence_isbot",
+                "type" : "tinyint(1)",
+                "null" : "no",
+                "default" : "'0'",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_intelligence_date_added",
+                "type" : "datetime",
+                "null" : "no",
+                "default" : "",
+                "extra" : "",
+                "comments" : ""
+            }
+
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_intelligence_id"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_field",
+                "fields" : ["werock_intelligence_data_id", "werock_intelligence_date_added"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_owner",
+                "fields" : ["werock_visitor_id", "werock_user_id", "werock_intelligence_date_added"]
+            }
+        ],
+        "comments" : "Intelligence"
+    },
+    {
+        "table" : "werock_intelligence_data",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_intelligence_data_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "AUTO_INCREMENT",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_intelligence_data_text",
+                "type" : "varchar(155)",
+                "null" : "no",
+                "default" : "'0'",
+                "extra" : "",
+                "comments" : ""
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_intelligence_data_id"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_field",
+                "fields" : ["werock_intelligence_data_text"]
+            }
+        ],
+        "comments" : "Intelligence Data"
+    },
+    {
+        "table" : "werock_intelligence_data_values",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_intelligence_data_value_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "AUTO_INCREMENT",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_intelligence_data_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "'0'",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_intelligence_data_value_text",
+                "type" : "varchar(255)",
+                "null" : "no",
+                "default" : "'0'",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_intelligence_data_value_count",
+                "type" : "int(7)",
+                "null" : "no",
+                "default" : "'0'",
+                "extra" : "",
+                "comments" : ""
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_intelligence_data_value_id"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_field",
+                "fields" : ["werock_intelligence_data_id", "werock_intelligence_data_value_text"]
+            }
+        ],
+        "comments" : "Intelligence Data Values"
+    }
+]

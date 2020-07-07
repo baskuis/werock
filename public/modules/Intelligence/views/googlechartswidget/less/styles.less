@@ -1,0 +1,63 @@
+.widget {
+  .header {
+    position: relative;
+    min-height: 33px;
+    .text {
+      line-height: 33px;
+      font-size: 16px;
+    }
+    padding: 0 50px 0 15px;
+    background-color: #ddd;
+    .options {
+      position: absolute;
+      top: 9px;
+      right: 15px;
+      cursor: pointer;
+    }
+    .print_out {
+      position: absolute;
+      top: 9px;
+      right: 35px;
+      cursor: pointer;
+    }
+  }
+  .controls {
+    display: none;
+    background-color: #eee;
+    height: 52px;
+    position: relative;
+    .range_slider {
+      padding: 10px 15px;
+    }
+    .interval {
+      position: absolute;
+      color: #666;
+      left: 15px;
+      bottom: 6px;
+    }
+    .range_description {
+      position: absolute;
+      color: #333;
+      bottom: 6px;
+      right: 15px;
+    }
+  }
+  .print_canvas {
+    display: none;
+    .graph_image {
+      width: 100%;
+    }
+    .range {
+      text-align: center;
+      font-size: 16px;
+      padding: 7px 0;
+    }
+  }
+  .gchart {
+    overflow: hidden;
+    min-height: 220px;
+    position: relative;
+    -webkit-transition: height 0.2s, -webkit-transform 0.2s;
+    transition: height 0.2s
+  }
+}

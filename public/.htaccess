@@ -1,0 +1,39 @@
+Options +FollowSymLinks -MultiViews
+Options -Indexes
+RewriteEngine On
+
+RewriteBase /
+
+Header unset ETag
+FileETag None
+
+#Assure static resources cached
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|woff)(\.gz)?$">
+    Header set Expires "Thu, 15 Apr 2020 20:00:00 GMT"
+</FilesMatch>
+
+#Api Request
+RewriteRule ^api\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/api [NC]
+RewriteRule . /api.php [L]
+
+#Stream Request
+RewriteRule ^stream\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/stream [NC]
+RewriteRule . /stream.php [L]
+
+#Request Page
+RewriteRule ^page\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /page.php [L]
+
+#Block browser access to schema files
+RewriteRule (.*)schema\.json /404.php
+
+#Page not found
+ErrorDocument 404 /404.php

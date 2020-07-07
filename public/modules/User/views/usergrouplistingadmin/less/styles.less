@@ -1,0 +1,53 @@
+.group {
+  display: block;
+  padding: 10px 15px 15px 15px;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+  &.last {
+    border-bottom: none;
+  }
+  label {
+    display: block;
+    margin: 0;
+    cursor: pointer;
+  }
+  &.super {
+    label {
+      cursor: not-allowed;
+    }
+  }
+  &.applied {
+
+  }
+  input {
+    margin-right: 10px;
+  }
+  &.name {
+    font-size: 14px;
+  }
+  .description {
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+  }
+  .icon-group {
+    margin: 2px 3px 0 0;
+    * {
+      color: #ccc;
+    }
+  }
+  ul.entitlements {
+    display: none;
+    list-style: none;
+    margin: 8px 0px 0px 25px;
+    li {
+      label {
+        font-size: 12px;
+        font-weight: normal;
+        input {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

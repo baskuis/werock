@@ -1,0 +1,307 @@
+[
+  {
+    "table": "werock_experiments",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_experiment_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_name",
+        "type": "varchar(155)",
+        "null": "NO",
+        "default": null,
+        "extra": "",
+        "comments": "label=Experiment Name"
+      },
+      {
+        "name": "werock_experiment_description",
+        "type": "text",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Description"
+      },
+      {
+        "name": "werock_experiment_type",
+        "type": "ENUM('template','js')",
+        "null": "YES",
+        "default": "'template'",
+        "extra": "",
+        "comments": "label=Type&helper=Template of javascript"
+      },
+      {
+        "name": "werock_experiment_template",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Template"
+      },
+      {
+        "name": "werock_experiment_min_hits",
+        "type": "ENUM('1','2','3','4','5','10','20')",
+        "null": "NO",
+        "default": "'2'",
+        "extra": "",
+        "comments": "label=Minimum Hists&helper=Minimum visitor page hits need for consideration"
+      },
+      {
+        "name": "werock_intelligence_data_id",
+        "type": "int(6)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Intelligence Data"
+      },
+      {
+        "name": "werock_experiment_match_type",
+        "type": "enum('match','regex')",
+        "null": "YES",
+        "default": "'match'",
+        "extra": "",
+        "comments": "label=Match Type"
+      },
+      {
+        "name": "werock_experiment_match_value",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Match Value"
+      },
+      {
+        "name": "werock_experiment_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_last_modified",
+        "type": "timestamp",
+        "null": "YES",
+        "default": "CURRENT_TIMESTAMP",
+        "extra": "on update CURRENT_TIMESTAMP",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_experiment_id"
+        ]
+      },
+      {
+        "name": "x_unique",
+        "type": "UNIQUE",
+        "method": "",
+        "fields": [
+          "werock_experiment_template"
+        ]
+      },
+      {
+        "name": "x_text",
+        "type": "FULLTEXT",
+        "method": "",
+        "fields": [
+          "werock_experiment_name",
+          "werock_experiment_description"
+        ]
+      }
+    ]
+  },
+  {
+    "table": "werock_experiment_variants",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_experiment_variant_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_variant_name",
+        "type": "varchar(155)",
+        "null": "NO",
+        "default": null,
+        "extra": "",
+        "comments": "label=Experiment Variant Name"
+      },
+      {
+        "name": "werock_experiment_variant_description",
+        "type": "text",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Description"
+      },
+      {
+        "name": "werock_experiment_variant_javascript",
+        "type": "text",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Variant javascript"
+      },
+      {
+        "name": "werock_experiment_variant_template",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Variant template"
+      },
+      {
+        "name": "werock_experiment_variant_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_variant_last_modified",
+        "type": "timestamp",
+        "null": "YES",
+        "default": "CURRENT_TIMESTAMP",
+        "extra": "on update CURRENT_TIMESTAMP",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_experiment_variant_id"
+        ]
+      },
+      {
+        "name": "x_lookup",
+        "type": "INDEX",
+        "method": "BTREE",
+        "fields": [
+          "werock_experiment_id"
+        ]
+      },
+      {
+        "name": "x_text",
+        "type": "FULLTEXT",
+        "method": "",
+        "fields": [
+          "werock_experiment_variant_name",
+          "werock_experiment_variant_description",
+          "werock_experiment_variant_template"
+        ]
+      }
+    ]
+  },
+  {
+    "table": "werock_experiment_variant_entries",
+    "engine": "InnoDB",
+    "collation": "latin1",
+    "row_format": "Compact",
+    "fields": [
+      {
+        "name": "werock_experiment_variant_entry_id",
+        "type": "int(6)",
+        "null": "YES",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_visitor_id",
+        "type": "int(6)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_variant_id",
+        "type": "int(6)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_variant_entry_value",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_variant_entry_count",
+        "type": "int(7)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_variant_entry_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_experiment_variant_entry_last_modified",
+        "type": "timestamp",
+        "null": "YES",
+        "default": "CURRENT_TIMESTAMP",
+        "extra": "on update CURRENT_TIMESTAMP",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_experiment_variant_entry_id"
+        ]
+      },
+      {
+        "name": "x_lookup",
+        "type": "INDEX",
+        "method": "BTREE",
+        "fields": [
+          "werock_experiment_variant_id"
+        ]
+      }
+    ]
+  }
+]

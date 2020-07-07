@@ -1,0 +1,49 @@
+.listing-header {
+  &.simple {
+    position: relative;
+    height: 33px;
+    background: #999999;
+    border-bottom: 1px solid #777777;
+    form {
+      position: relative;
+      .search-field {
+        position: absolute;;
+        top: 5px;
+        left: 10px;
+        font-size: 12px;
+        padding: 2px 10px;
+        line-height: 22px;
+        height: 22px;
+        width: 120px;
+        border-radius: 15px;
+        border: 1px solid #777777;
+        border-bottom-color: #555555;
+        outline: none;
+        color: #555555;
+      }
+      .clear-search {
+        color: #999999;
+        position: absolute;
+        top: 8px;
+        left: 112px;
+        cursor: pointer;
+      }
+    }
+    .add-link {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      display: block;
+      text-align: center;
+      width: 33px;
+      height: 33px;
+      line-height: 33px;
+      span {
+        line-height: 29px;
+      }
+      background: #444;
+      color: #ffffff;
+      text-shadow: 0 0 1px #222;
+    }
+  }
+}

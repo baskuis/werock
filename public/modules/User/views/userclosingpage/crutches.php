@@ -1,0 +1,3 @@
+<?php
+
+$crutches = array('bootstrap');

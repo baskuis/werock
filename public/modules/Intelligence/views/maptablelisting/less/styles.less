@@ -1,0 +1,58 @@
+.listings-column {
+  width: 290px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  .listings-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+    .mCSB_draggerContainer {
+      left: -30px;
+    }
+  }
+  height: 600px;
+  @media (max-width: @desktopbreakpoint) {
+    width: 100%;
+    &.compact{
+      height: auto !important;
+      min-height: inherit;
+      .listings-wrapper {
+        display: none;
+      }
+    }
+  }
+}
+.widget-column {
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-left: 290px;
+  border-left: 1px solid #ddd;
+  @media (max-width: @desktopbreakpoint) {
+    width: 100%;
+    margin-left: 0;
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+  .form-header {
+    height: 33px;
+    //background: #ffffff;
+    position: relative;
+    //border-bottom: 1px solid #dddddd;
+    .title {
+      color: #222222;
+      line-height: 33px;
+      padding: 0 @gutterwidth;
+      font-size: 18px;
+    }
+    .record-id {
+      position: absolute;
+      top: 0;
+      line-height: 33px;
+      right: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}

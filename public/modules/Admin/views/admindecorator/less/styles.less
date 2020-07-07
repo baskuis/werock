@@ -1,0 +1,120 @@
+.admin-container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  &.add-blur {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+  }
+  .left-menu {
+    position: fixed;
+    width: 199px;
+    top: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: #222222;
+    z-index: 999;
+    border-right: 1px solid #333333;
+    @media (max-width: @mobilebreakpoint) {
+      top: 54px;
+      display: none;
+      &.opened {
+        display: block;
+        transition: 1s;
+      }
+    }
+  }
+  .left-menu-control {
+    z-index: 99999;
+    display: none;
+    background-color: #000000;
+    padding: 0px 0 0 20px;
+    font-size: 48px;
+    line-height: 20px;
+    text-align: left;
+    color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 54px;
+    cursor: pointer;
+    .container {
+      position: relative;
+      display: inline-block;
+      margin: 25px 0 0 -17.5px;
+    }
+    .search-wrapper {
+      position: absolute;
+      font-size: 16px;
+      line-height: 24px;
+      top: 12px;
+      right: 20px;
+      .clear-search {
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        color: #999999;
+        cursor: pointer;
+      }
+      input {
+        border-radius: 10px;
+        border: 1px solid #000000;
+        background-color: #444444;
+        color: #999999;
+        padding: 2px 6px;
+        font-size: 12px;
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
+    @media (max-width: @mobilebreakpoint) {
+      display: block;
+      .search-wrapper {
+        display: none;
+      }
+    }
+  }
+  .content-area {
+    margin: 0;
+    margin-left: 199px;
+    @media (max-width: @mobilebreakpoint) {
+      margin-left: 0;
+    }
+    padding: 0;
+    .content {
+      padding: @gutterwidth;
+    }
+  }
+}
+
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: white;
+  position: absolute;
+  display: block;
+  content: '';
+}
+#nav-toggle span:before {
+  top: -10px;
+}
+#nav-toggle span:after {
+  bottom: -10px;
+}
+#nav-toggle.active span {
+  background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+  top: 0;
+}
+#nav-toggle.active span:before {
+  transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+  transform: rotate(-45deg);
+}

@@ -1,0 +1,56 @@
+[
+    {
+        "table" : "werock_sessions",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_session_id",
+                "type" : "varchar(155)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_session_key",
+                "type" : "varchar(155)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Key"
+            },
+            {
+                "name" : "werock_session_data",
+                "type" : "text",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Data"
+            },
+            {
+                "name" : "werock_session_expires",
+                "type" : "bigint(20)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Value"
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_session_id", "werock_session_key"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_expires",
+                "fields" : ["werock_session_expires"]
+            }
+        ],
+        "comments" : "Properties"
+    }
+]

@@ -1,0 +1,735 @@
+[
+    {
+        "table" : "werock_users",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_user_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "AUTO_INCREMENT",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_user_username",
+                "type" : "varchar(155)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Username&validation=*"
+            },
+            {
+                "name" : "werock_user_password",
+                "type" : "varchar(255)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Password&validation=\/^[^\\s]{5,64}$\/"
+            },
+            {
+                "name" : "werock_user_access_token",
+                "type" : "varchar(255)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Access Token"
+            },
+            {
+                "name" : "werock_user_pw_reset_key",
+                "type" : "varchar(255)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Password Reset Key"
+            },
+            {
+                "name" : "werock_user_pw_reset_timestamp",
+                "type" : "bigint(20)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Reset Timestamp"
+            },
+            {
+                "name" : "werock_user_date_added",
+                "type" : "datetime",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_user_last_modified",
+                "type" : "timestamp",
+                "null" : "no",
+                "default" : "CURRENT_TIMESTAMP",
+                "extra" : "ON UPDATE CURRENT_TIMESTAMP",
+                "comments" : ""
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_user_id"]
+            },
+            {
+                "type" : "UNIQUE",
+                "method" : "BTREE",
+                "name" : "x_username",
+                "fields" : ["werock_user_username"],
+                "comments" : ""
+            },
+            {
+                "type" : "FULLTEXT",
+                "method" : "",
+                "name" : "x_text",
+                "fields" : ["werock_user_username"],
+                "comments" : ""
+            }
+        ]
+    },
+    {
+        "table": "werock_user_emails",
+        "engine": "InnoDB",
+        "collation": "latin1",
+        "row_format": "Compact",
+        "fields": [
+            {
+                "name": "werock_user_email_id",
+                "type": "int(6)",
+                "null": "NO",
+                "default": null,
+                "extra": "AUTO_INCREMENT",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_email_key",
+                "type": "varchar(255)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Email key"
+            },
+            {
+                "name": "werock_user_email_value",
+                "type": "varchar(255)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Email Address"
+            },
+            {
+                "name": "werock_user_email_activated",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Activated?"
+            },
+            {
+                "name": "werock_user_email_activation_reminded",
+                "type": "tinyint(1)",
+                "null": "NO",
+                "default": 0,
+                "extra": "",
+                "comments": "label=Reminded"
+            },
+            {
+                "name": "werock_user_email_date_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_email_last_modified",
+                "type": "timestamp",
+                "null": "YES",
+                "default": "CURRENT_TIMESTAMP",
+                "extra": "on update CURRENT_TIMESTAMP",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_email_id"
+                ]
+            },
+            {
+                "name": "userid",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_id"
+                ]
+            },
+            {
+                "name": "x_unique",
+                "type": "UNIQUE",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_id",
+                    "werock_user_email_value"
+                ]
+            }
+        ]
+    },
+    {
+        "table": "werock_user_externals",
+        "engine": "MyISAM",
+        "collation": "latin1",
+        "row_format": "Dynamic",
+        "fields": [
+            {
+                "name": "werock_user_external_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "AUTO_INCREMENT",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_external_key",
+                "type": "varchar(155)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_external_value",
+                "type": "varchar(255)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=User"
+            },
+            {
+                "name": "werock_user_external_date_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_external_last_modified",
+                "type": "timestamp",
+                "null": "YES",
+                "default": "CURRENT_TIMESTAMP",
+                "extra": "on update CURRENT_TIMESTAMP",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_external_id"
+                ]
+            },
+            {
+                "name": "userid",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_id"
+                ]
+            },
+            {
+                "name": "x_metakey",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_external_key"
+                ]
+            }
+        ]
+    },
+    {
+        "table" : "werock_user_invites",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_user_invite_id",
+                "type" : "int(6)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "AUTO_INCREMENT",
+                "comments" : ""
+            },
+            {
+                "name": "werock_user_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=User"
+            },
+            {
+                "name" : "werock_user_invite_token",
+                "type" : "varchar(255)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Invite Token"
+            },
+            {
+                "name" : "werock_user_invite_name",
+                "type" : "varchar(255)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Invite Name"
+            },
+            {
+                "name" : "werock_user_invite_email",
+                "type" : "varchar(255)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Invite Email"
+            },
+            {
+                "name" : "werock_user_invite_date_added",
+                "type" : "datetime",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : ""
+            },
+            {
+                "name" : "werock_user_invite_last_modified",
+                "type" : "timestamp",
+                "null" : "no",
+                "default" : "CURRENT_TIMESTAMP",
+                "extra" : "ON UPDATE CURRENT_TIMESTAMP",
+                "comments" : ""
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_user_invite_id"]
+            },
+            {
+                "name": "x_userid",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": ["werock_user_id"]
+            },
+            {
+                "name" : "x_invite_email",
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "fields" : ["werock_user_invite_email"]
+            }
+        ]
+    },
+    {
+        "table": "werock_user_data",
+        "engine": "InnoDB",
+        "collation": "latin1",
+        "row_format": "Compact",
+        "fields": [
+            {
+                "name": "werock_user_data_id",
+                "type": "int(5)",
+                "null": "NO",
+                "default": null,
+                "extra": "auto_increment",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_data_key",
+                "type": "varchar(255)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_data_date_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_data_last_modified",
+                "type": "timestamp",
+                "null": "YES",
+                "default": "CURRENT_TIMESTAMP",
+                "extra": "on update CURRENT_TIMESTAMP",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_data_id"
+                ]
+            },
+            {
+                "name": "x_field",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_data_key"
+                ]
+            }
+        ]
+    },
+    {
+        "table": "werock_user_data_values",
+        "engine": "MyISAM",
+        "collation": "latin1",
+        "row_format": "Dynamic",
+        "fields": [
+            {
+                "name": "werock_user_data_value_id",
+                "type": "int(6)",
+                "null": "NO",
+                "default": null,
+                "extra": "AUTO_INCREMENT",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_data_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_data_value_string",
+                "type": "text",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Value"
+            },
+            {
+                "name": "werock_user_data_value_date_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_data_value_last_modified",
+                "type": "timestamp",
+                "null": "YES",
+                "default": "CURRENT_TIMESTAMP",
+                "extra": "on update CURRENT_TIMESTAMP",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_data_value_id"
+                ]
+            },
+            {
+                "name": "x_lookup",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_id",
+                    "werock_user_data_id"
+                ]
+            }
+        ]
+    },
+    {
+        "table": "werock_groups",
+        "engine": "MyISAM",
+        "collation": "latin1",
+        "row_format": "Dynamic",
+        "fields": [
+            {
+                "name": "werock_group_id",
+                "type": "int(11)",
+                "null": "NO",
+                "default": null,
+                "extra": "auto_increment",
+                "comments": ""
+            },
+            {
+                "name": "werock_group_name",
+                "type": "varchar(155)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Group Name&condition=*&placeholder=ie: My group name"
+            },
+            {
+                "name": "werock_group_description",
+                "type": "text",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Description"
+            },
+            {
+                "name": "werock_group_image",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Group Image"
+            },
+            {
+                "name": "werock_group_entitlements",
+                "type": "text",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": "label=Group entitlements&validation=&helper=Choose what entitlements this group should have"
+            },
+            {
+                "name": "werock_group_date_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_group_last_modified",
+                "type": "timestamp",
+                "null": "YES",
+                "default": "CURRENT_TIMESTAMP",
+                "extra": "on update CURRENT_TIMESTAMP",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_group_id"
+                ]
+            },
+            {
+                "name": "x_text",
+                "type": "FULLTEXT",
+                "method": "",
+                "fields": [
+                    "werock_group_name",
+                    "werock_group_description"
+                ]
+            }
+        ]
+    },
+    {
+        "table": "werock_group_members",
+        "engine": "MyISAM",
+        "collation": "latin1",
+        "row_format": "Fixed",
+        "fields": [
+            {
+                "name": "werock_group_member_id",
+                "type": "int(6)",
+                "null": "NO",
+                "default": null,
+                "extra": "auto_increment",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_group_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_group_member_date_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_group_member_last_modified",
+                "type": "timestamp",
+                "null": "YES",
+                "default": "CURRENT_TIMESTAMP",
+                "extra": "on update CURRENT_TIMESTAMP",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_group_member_id"
+                ]
+            },
+            {
+                "name": "x_field",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_id",
+                    "werock_group_id"
+                ]
+            }
+        ]
+    },
+    {
+        "table": "werock_entitlements",
+        "engine": "MyISAM",
+        "collation": "latin1",
+        "row_format": "Dynamic",
+        "fields": [
+            {
+                "name": "werock_entitlement_id",
+                "type": "int(11)",
+                "null": "NO",
+                "default": null,
+                "extra": "auto_increment",
+                "comments": ""
+            },
+            {
+                "name": "werock_group_id",
+                "type": "int(11)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_group_urn",
+                "type": "varchar(155)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_entitlement_type",
+                "type": "varchar(255)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_entitlement_object_urn",
+                "type": "varchar(255)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_entitlement_date_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_entitlement_last_modified",
+                "type": "timestamp",
+                "null": "YES",
+                "default": "CURRENT_TIMESTAMP",
+                "extra": "on update CURRENT_TIMESTAMP",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_entitlement_id"
+                ]
+            },
+            {
+                "name": "x_entitlement_lookup",
+                "type": "UNIQUE",
+                "method": "BTREE",
+                "fields": [
+                    "werock_entitlement_object_urn",
+                    "werock_entitlement_type",
+                    "werock_group_urn",
+                    "werock_group_id"
+                ]
+            },
+            {
+                "name": "x_entitlement",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_entitlement_type"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,42 @@
+.mediadrop {
+  padding: @gutterwidth;
+  .uploadFile {
+    text-align: center;
+    padding: @gutterwidth;
+    border: 3px dashed #eee;
+    border-radius: 100px;
+    min-height: 120px;
+    cursor: pointer;
+    .label {
+      display: block;
+      font-size: 24px;
+      line-height: 36px;
+      color: #cccccc;
+    }
+    .subtext {
+      display: block;
+      font-size: 18px;
+      line-height: 24px;
+      color: #aaaaaa;
+    }
+    input {
+      margin: 0 auto;
+    }
+    &:hover, &.active {
+      border: 3px solid @active;
+      .label {
+        color: @active;
+      }
+      .subtext {
+        color: #666666;
+      }
+    }
+  }
+  .spacer {
+    height: @gutterwidth;
+  }
+}
+ul.uploadlist {
+  list-style: none;
+  border-top: 1px solid #eeeeee;
+}

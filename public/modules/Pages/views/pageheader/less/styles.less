@@ -1,0 +1,81 @@
+#topbar {
+	height: 32px;
+	line-height: 32px;		
+	.signin { 
+		
+	}
+	.cart { 
+		margin-left: 10px;
+	}
+	.call_cta { 
+		font-weight: bold;
+		color: #666;
+	}
+}
+#navbar { 
+	height: 121px;
+	background: #fff;
+	position: relative;
+	zoom: 1;
+	#logo { 
+		position: absolute;
+		top: 36px; 
+		left: 36px;
+		font-family: 'proxima_novalight';
+		font-size: 42px;
+		line-height: 42px;
+	}
+	.main_nav { 
+		height: 121px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		margin-left: 300px;
+		li { 
+			list-style-position: inside;
+			float: left;
+			border-right: 1px solid #eee;
+			a { 
+				height: 121px;
+				line-height: 121px;
+				padding: 0 40px;
+				font-size: 24px;
+				display: block;
+
+			    -moz-transition: all 0.2s;
+			    -webkit-transition: all 0.2s;
+			    -o-transition: all 0.2s;
+			    transition: all 0.2s;
+			    
+				&:hover { 
+					text-decoration: none;
+					background-color: #4289c8;
+					color: white;
+					text-shadow: 1px 1px 1px #2b6ca4;
+				}
+			}
+			&.last { 
+				border-right: 0px;
+			}
+		}
+	}
+	#msearch {
+		position: absolute; 
+		top: 36px; 
+		right: 36px;
+		.fa { 
+			font-size: 48px;
+			line-height: 48px;
+			color: #f1f1f1;
+			cursor: pointer;
+		}
+	}
+	.shadow { 
+		background: url('../images/header-shadow-bg.png') center top no-repeat transparent;
+		height: 13px;
+		position: absolute;
+		bottom: -13px;
+		left: 0;
+		right: 0;
+	}
+}

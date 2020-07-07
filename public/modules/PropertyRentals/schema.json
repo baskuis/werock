@@ -1,0 +1,277 @@
+[
+  {
+    "table": "werock_buildings",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_building_id",
+        "type": "int(11)",
+        "null": "NO",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_name",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Building Name&validation=*&helper=Name this building&placeholder=ie: Building #1"
+      },
+      {
+        "name": "werock_building_description",
+        "type": "text",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Building Description&validation=&helper=Describe this building&placeholder=ie: About the building"
+      },
+      {
+        "name": "werock_building_address",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Street Address&validation=*&helper=Enter street and number&placeholder=ie: 1234 Any Street"
+      },
+      {
+        "name": "werock_building_city",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=City&validation=*&helper=Enter city&placeholder=ie: Anytown"
+      },
+      {
+        "name": "werock_building_state",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=State&validation=*&helper=Pick a state&placeholder=WI"
+      },
+      {
+        "name": "werock_building_zipcode",
+        "type": "varchar(55)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Zipcode&validation=\/^[0-9]{5}$|[0-9]{5}[^0-9]{1}[0-9]{4}\/&helper=Enter a valid US zipcode&placeholder=ie: 54321"
+      },
+      {
+        "name": "werock_building_image",
+        "type": "int(5)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Main Image&validation=*&helper=Upload a main featured image"
+      },
+      {
+        "name": "werock_building_images",
+        "type": "varchar(255)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Additional Images&validation=*&helper=Upload any number of additional images"
+      },
+      {
+        "name": "werock_building_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_last_modified",
+        "type": "timestamp",
+        "null": "YES",
+        "default": "CURRENT_TIMESTAMP",
+        "extra": "on update CURRENT_TIMESTAMP",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_building_id"
+        ]
+      },
+      {
+        "name" : "x_address",
+        "type" : "UNIQUE",
+        "method" : "BTREE",
+        "fields": ["werock_building_address", "werock_building_zipcode"]
+      }
+    ]
+  },
+  {
+    "table": "werock_building_unit_types",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_building_unit_type_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_unit_type_name",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Unit Type Name&validation=*&helper=Name the unit type&placeholder=ie: Roomy 2 bedroom"
+      },
+      {
+        "name": "werock_building_unit_type_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_unit_type_last_modified",
+        "type": "timestamp",
+        "null": "YES",
+        "default": "CURRENT_TIMESTAMP",
+        "extra": "on update CURRENT_TIMESTAMP",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_unit_type_orderfield",
+        "type": "int(6)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_building_unit_type_id"
+        ]
+      }
+    ]
+  },
+  {
+    "table": "werock_buildings_to_unit_types",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_building_unit_type_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      }
+    ]
+  },
+  {
+    "table": "werock_building_units",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_building_unit_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "comments": "label=Building"
+      },
+      {
+        "name": "werock_building_unit_name",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Unit Name&validation=*&helper=Name the unit&placeholder=ie: Lower Rear"
+      },
+      {
+        "name": "werock_building_unit_rooms",
+        "type": "enum('studio','1','2','3','4','5')",
+        "null": "YES",
+        "default": "1",
+        "extra": "",
+        "comments": "label=Number of bedrooms&validation=*&helper=How many bedrooms"
+      },
+      {
+        "name": "werock_building_unit_description",
+        "type": "text",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_unit_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_unit_last_modified",
+        "type": "timestamp",
+        "null": "YES",
+        "default": "CURRENT_TIMESTAMP",
+        "extra": "on update CURRENT_TIMESTAMP",
+        "comments": ""
+      },
+      {
+        "name": "werock_building_unit_orderfield",
+        "type": "int(6)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_building_unit_id"
+        ]
+      }
+    ]
+  }
+]

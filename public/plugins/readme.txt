@@ -1,0 +1,1 @@
+plugins - for the purpose of extending the applications functionality

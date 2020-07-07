@@ -1,0 +1,32 @@
+html {
+  overflow-x: hidden;
+}
+*:not(.glyphicon):not(.fa) {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.admin {
+  .modal-backdrop {
+    background-color: #ccc;
+    &.in {
+      opacity: 0.1;
+    }
+  }
+  .modal {
+    .modal-content {
+      box-shadow: 0 3px 6px #4C5773;
+    }
+  }
+}
+@media (max-width: @mobilebreakpoint) {
+  body.admin,
+  body.admin .modal {
+    padding-top: 54px;
+  }
+}
+
+html, body.admin {
+  height: 100%;
+}
+body.admin {
+  min-height: 100%;
+}

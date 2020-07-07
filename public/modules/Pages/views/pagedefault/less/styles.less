@@ -1,0 +1,66 @@
+body { 
+	background: #eee;	
+	font-size: 13px;
+	font-family: 'proxima_novalight';
+}
+* { 
+	padding: 0;
+	margin: 0;
+	font-family: 'proxima_novalight';
+}
+img { 
+	border: none;
+}
+#wrapper { 
+	#container { 
+		
+	}
+}
+
+.inner { 
+	max-width: 1170px;
+	margin: 0 auto;
+	text-align: left;
+	position: relative;
+	zoom: 1;
+	.content { 
+		padding: 0 @base;
+		ul { 
+			list-style: inside;
+			padding-left: (2 * @base);
+		}
+	}
+}
+
+.buttonLink { 
+	border-radius: 10px 10px 10px 10px;
+    display: inline-block;
+    line-height: 20px;
+    padding: 0 7px;
+	border-radius: 5px;  
+	background: #428ac9; 
+	color: white;
+	&:hover { 
+		background: #2b73b2;
+		color: white;
+		text-decoration: none;
+	}
+	&.gray { 
+		background: #afafaf; 
+		&:hover { 
+			background: #9b9b9b;
+			color: white;
+			text-decoration: none;		
+		}
+	}
+}
+
+.right { 
+	float: right;	
+}
+.left { 
+	float: left;
+}
+.clear { 
+	clear: both;
+}

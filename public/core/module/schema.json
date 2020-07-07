@@ -1,0 +1,105 @@
+[
+    {
+        "table" : "werock_modules",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_module_name",
+                "type" : "varchar(85)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Module Name"
+            },
+            {
+                "name" : "werock_module_version",
+                "type" : "varchar(55)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Version"
+            },
+            {
+                "name" : "werock_module_enabled",
+                "type" : "tinyint(1)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Enabled"
+            },
+            {
+                "name" : "werock_module_date_added",
+                "type" : "datetime",
+                "null" : "yes",
+                "default" : "0",
+                "extra" : "",
+                "comments" : "label=Date Added"
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "PRIMARY",
+                "name" : "",
+                "fields" : ["werock_module_name"]
+            }
+        ],
+        "comments" : "Modules"
+    },
+    {
+        "table" : "werock_module_properties",
+        "engine" : "MyISAM",
+        "collation" : "latin1",
+        "row_format" : "DYNAMIC",
+        "fields" : [
+            {
+                "name" : "werock_module_name",
+                "type" : "varchar(85)",
+                "null" : "no",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Module"
+            },
+            {
+                "name" : "werock_module_property_key",
+                "type" : "varchar(155)",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Key"
+            },
+            {
+                "name" : "werock_module_property_value",
+                "type" : "text",
+                "null" : "yes",
+                "default" : "",
+                "extra" : "",
+                "comments" : "label=Value"
+            },
+            {
+                "name" : "werock_module_property_date_added",
+                "type" : "datetime",
+                "null" : "yes",
+                "default" : "0",
+                "extra" : "",
+                "comments" : "label=Date Added"
+            }
+        ],
+        "indexes" : [
+            {
+                "type" : "UNIQUE",
+                "method" : "BTREE",
+                "name" : "x_unique",
+                "fields" : ["werock_module_name", "werock_module_property_key"]
+            },
+            {
+                "type" : "INDEX",
+                "method" : "BTREE",
+                "name" : "x_added",
+                "fields" : ["werock_module_property_date_added"]
+            }
+        ],
+        "comments" : "Module Properties"
+    }
+]

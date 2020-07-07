@@ -1,0 +1,3 @@
+[submodule "public/modules/SSO/repositories/lib/simplesamlphp"]
+	path = public/modules/SSO/repositories/lib/simplesamlphp
+	url = https://github.com/simplesamlphp/simplesamlphp

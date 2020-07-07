@@ -1,0 +1,27 @@
+.person-tile {
+  margin-bottom: (@gutterwidth / 2);
+  &:hover {
+    cursor: pointer;
+    a {
+      text-decoration: underline;
+    }
+    &.selected {
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  &.selected {
+    &:hover {
+      cursor: default;
+    }
+    .tile {
+      border: 1px solid #000000;
+      a {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

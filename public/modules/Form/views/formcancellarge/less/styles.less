@@ -1,0 +1,19 @@
+.buttons {
+  padding: (@gutterwidth / 2) 0;
+  min-height: 74px;
+  .cancel {
+    float: right;
+    margin-right: 0px;
+    background: #ddd;
+  }
+  .xs-container {
+    @media (max-width: @tabletbreakpoint) {
+      display: block;
+      padding: 0 0 (@gutterwidth / 2) 0;
+      height: 74px;
+      .cancel {
+        margin-right: 0px;
+      }
+    }
+  }
+}

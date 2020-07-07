@@ -1,0 +1,36 @@
+.listing-header {
+  .show-permissions {
+    position: absolute;
+    top: 9px;
+    right: 45px;
+    cursor: pointer;
+    color: #444444;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 16px;
+    &.active {
+      color: #ffffff;
+      text-shadow: 1px 1px 1px #666;
+    }
+    @media (max-width: @desktopbreakpoint) {
+      right: 75px;
+    }
+  }
+}
+.nocreate {
+  .listing-header {
+    .add-link {
+      display: none;
+    }
+  }
+  .show-permissions {
+    right: 12px;
+  }
+  .show-graphs {
+    right: 12px;
+  }
+}
+.noview {
+  .search-field {
+    display: none;
+  }
+}

@@ -1,0 +1,30 @@
+<?php
+
+CoreLanguage::set('admin:system:link:name', 'en', 'System');
+CoreLanguage::set('admin:system:link:title', 'en', 'The We-Rock System');
+CoreLanguage::set('admin:tools:link:name', 'en', 'Tools');
+CoreLanguage::set('admin:tools:link:title', 'en', 'Tools');
+CoreLanguage::set('admin:content:link:name', 'en', 'Content');
+CoreLanguage::set('admin:content:link:title', 'en', 'The content');
+CoreLanguage::set('admin:people:link:name', 'en', 'People');
+CoreLanguage::set('admin:people:link:title', 'en', 'The team');
+CoreLanguage::set('admin:system:modulesenabled:link:name', 'en', 'Modules');
+CoreLanguage::set('admin:system:modulesenabled:link:title', 'en', 'Modules');
+CoreLanguage::set('admin:system:sessions:link:name', 'en', 'Sessions');
+CoreLanguage::set('admin:system:sessions:link:title', 'en', 'Sessions Settings');
+CoreLanguage::set('admin:sessions:title', 'en', 'Session Settings');
+CoreLanguage::set('admin:sessions:description', 'en', 'Session settings page');
+CoreLanguage::set('admin.schemainterpretation.page.title', 'en', 'Schema Interpretation');
+CoreLanguage::set('admin:schemainterpretation:link:name', 'en', 'Schema Interpretation');
+CoreLanguage::set('admin:schemainterpretation:link:title', 'en', 'Schema Interpretation');
+CoreLanguage::set('admin.schemainterpretation.page.description', 'en', 'Allows for interpretation of existing mysql table to allow fast creation of embeddable schema.json files');
+CoreLanguage::set('admin.coreproperties.page.title', 'en', 'System Properties');
+CoreLanguage::set('admin.coreproperties.page.description', 'en', 'Edit system properties');
+CoreLanguage::set('admin:coreproperties:link:name', 'en', 'System Properties');
+CoreLanguage::set('admin:coreproperties:link:title', 'en', 'System Properties');
+CoreLanguage::set('admin:data:link:name', 'en', 'Data');
+CoreLanguage::set('admin:data:link:title', 'en', 'Data');
+CoreLanguage::set('admin:adminlogviewer:link:name', 'en', 'Log Viewer');
+CoreLanguage::set('admin:adminlogviewer:link:title', 'en', 'View System Logs');
+CoreLanguage::set('admin.adminlogviewer.page.title', 'en', 'Log Viewer');
+CoreLanguage::set('admin.adminlogviewer.page.description', 'en', 'Review system logs');

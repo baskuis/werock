@@ -1,0 +1,1 @@
+<?php class MessageUnableToFindUserByIdException extends Exception { }

@@ -1,0 +1,172 @@
+[
+  {
+    "table": "werock_searches",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_search_id",
+        "type": "int(6)",
+        "null": "NO",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_user_id",
+        "type": "int(6)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_visitor_id",
+        "type": "int(6)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_search_urn",
+        "type": "varchar(85)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_search_text",
+        "type": "varchar(255)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_search_found",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "default": 0,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_search_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_search_id"
+        ]
+      },
+      {
+        "name": "x_lookup",
+        "type": "INDEX",
+        "method": "BTREE",
+        "fields": [
+          "werock_user_id",
+          "werock_visitor_id",
+          "werock_search_urn"
+        ]
+      }
+    ]
+  },
+  {
+    "table": "werock_search_suggestions",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_search_suggestion_id",
+        "type": "int(7)",
+        "null": "NO",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_search_suggestion_text",
+        "type": "varchar(255)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_search_suggestion_count",
+        "type": "int(6)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Suggestion count"
+      },
+      {
+        "name": "werock_search_suggestion_found",
+        "type": "tinyint(4)",
+        "null": "YES",
+        "default": "0",
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_search_suggestion_urn",
+        "type": "varchar(85)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_search_suggestion_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_search_suggestion_id"
+        ]
+      },
+      {
+        "name": "x_lookup",
+        "type": "INDEX",
+        "method": "BTREE",
+        "fields": [
+          "werock_search_suggestion_urn",
+          "werock_search_suggestion_text",
+          "werock_search_suggestion_count",
+          "werock_search_suggestion_found"
+        ]
+      },
+      {
+        "name": "x_text",
+        "type": "FULLTEXT",
+        "method": "",
+        "fields": [
+          "werock_search_suggestion_text",
+          "werock_search_suggestion_urn"
+        ]
+      }
+    ]
+  }
+]

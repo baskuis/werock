@@ -1,0 +1,159 @@
+[{
+    "table" : "werock_failed_logins",
+    "engine" : "MyISAM",
+    "collation" : "latin1",
+    "row_format" : "DYNAMIC",
+    "fields" : [
+        {
+            "name" : "werock_failed_login_id",
+            "type" : "int(7)",
+            "null" : "no",
+            "default" : "",
+            "extra" : "AUTO_INCREMENT",
+            "comments" : ""
+        },
+        {
+            "name" : "werock_failed_login_username",
+            "type" : "varchar(85)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Username"
+        },
+        {
+            "name" : "werock_failed_login_email",
+            "type" : "varchar(155)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Email"
+        },
+        {
+            "name" : "werock_visitor_id",
+            "type" : "int(8)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Visitor ID"
+        },
+        {
+            "name" : "werock_failed_login_date_added",
+            "type" : "datetime",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : ""
+        }
+    ],
+    "indexes" : [
+        {
+            "type" : "PRIMARY",
+            "fields" : ["werock_failed_login_id"]
+        },
+        {
+            "type" : "INDEX",
+            "method" : "BTREE",
+            "name" : "x_username",
+            "fields" : ["werock_failed_login_username", "werock_failed_login_email"]
+        },
+        {
+            "type" : "INDEX",
+            "method" : "BTREE",
+            "name" : "x_visitor",
+            "fields" : ["werock_visitor_id"]
+        }
+    ],
+    "comments" : "Failed Logins"
+}, {
+    "table" : "werock_remote_reputation",
+    "engine" : "MyISAM",
+    "collation" : "latin1",
+    "row_format" : "DYNAMIC",
+    "fields" : [
+        {
+            "name" : "werock_remote_reputation_id",
+            "type" : "int(7)",
+            "null" : "no",
+            "default" : "",
+            "extra" : "AUTO_INCREMENT",
+            "comments" : ""
+        },
+        {
+            "name" : "werock_remote_reputation_ip",
+            "type" : "varchar(85)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Remote IP"
+        },
+        {
+            "name" : "werock_remote_reputation_fatal_count",
+            "type" : "int(7)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Fatal Counter"
+        },
+        {
+            "name" : "werock_remote_reputation_error_count",
+            "type" : "int(7)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Error Counter"
+        },
+        {
+            "name" : "werock_remote_reputation_warn_count",
+            "type" : "int(7)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Warn Counter"
+        },
+        {
+            "name" : "werock_remote_reputation_info_count",
+            "type" : "int(7)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Info Counter"
+        },
+        {
+            "name" : "werock_remote_reputation_blocked",
+            "type" : "tinyint(1)",
+            "null" : "no",
+            "default" : "'0'",
+            "extra" : "",
+            "comments" : "label=Remote IP blocked"
+        },
+        {
+            "name" : "werock_failed_login_date_added",
+            "type" : "datetime",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : ""
+        },
+        {
+            "name" : "werock_failed_login_last_modified",
+            "type" : "timestamp",
+            "null" : "no",
+            "default" : "CURRENT_TIMESTAMP",
+            "extra" : "ON UPDATE CURRENT_TIMESTAMP",
+            "comments" : ""
+        }
+    ],
+    "indexes" : [
+        {
+            "type" : "PRIMARY",
+            "fields" : ["werock_remote_reputation_id"]
+        },
+        {
+            "type" : "UNIQUE",
+            "method" : "BTREE",
+            "name" : "x_ip",
+            "fields" : ["werock_remote_reputation_ip"]
+        }
+    ],
+    "comments" : "Ip Reputation"
+}]

@@ -1,0 +1,35 @@
+.buttons {
+  padding: (@gutterwidth / 2) 0;
+  min-height: 74px;
+  .reset {
+    float: left;
+  }
+  .cancel {
+    float: right;
+    margin-right: @gutterwidth;
+    background: #ddd;
+  }
+  .save-and-new {
+    float: right;
+    margin-left: @gutterwidth;
+  }
+  .submit {
+    float: right;
+  }
+  .xs-container {
+    @media (max-width: @tabletbreakpoint) {
+      display: block;
+      padding: 0 0 (@gutterwidth / 2) 0;
+      height: 74px;
+      .cancel {
+        margin-right: 0px;
+      }
+      .save {
+        float: left;
+      }
+      .submit {
+        margin-right: 0px;
+      }
+    }
+  }
+}

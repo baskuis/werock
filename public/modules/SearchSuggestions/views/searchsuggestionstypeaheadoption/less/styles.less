@@ -1,0 +1,34 @@
+.option {
+  display: block;
+  &.active {
+    background-color: #eee;
+    color: #111;
+  }
+  &:hover {
+    background-color: #eee;
+    color: #111;
+  }
+  font-size: 90%;
+  line-height: 180%;
+  color: #222;
+  padding: 0 8px;
+  text-decoration: none;
+  font-weight: bold;
+  @media (max-width:500px) {
+    padding: 8px 16px;
+  }
+  @media (max-width:320px) {
+    padding: 12px 8px;
+  }
+  .highlight {
+    font-weight: normal;
+    color: #444;
+  }
+  strong {
+    font-weight: normal;
+    color: #444;
+  }
+  &.personalized {
+    font-style: italic;
+  }
+}

@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+hostname              = "werock.dev"
+server_ip             = "192.168.22.10"
+server_cpus           = "6"
+server_memory         = "2048"
+server_swap           = "2048"
+
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    config.vm.box = "ubuntu/trusty64"
+    config.vm.hostname = hostname
+    config.vm.network :private_network, ip: server_ip
+    config.vm.network "forwarded_port", guest: 80, host: 8000
+    config.vm.network "forwarded_port", guest: 443, host: 8443
+    config.vm.network "forwarded_port", guest: 3306, host: 8001
+    config.vm.synced_folder "../", "/var/www/vhosts/werock.com"
+    config.vm.synced_folder "../apache", "/etc/apache2/sites-available"
+    config.vm.provision "shell", path: "scripts/provision.sh"
+    config.trigger.after [:provision, :up, :reload] do
+        system('echo "rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8000
+            	rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 443 -> 127.0.0.1 port 8443" | sudo pfctl -f - > /dev/null 2>&1; echo "==> Fowarding Ports: 80 -> 8000, 443 -> 8443"')
+    end
+    config.trigger.after [:halt, :destroy] do
+        system("sudo pfctl -f /etc/pf.conf > /dev/null 2>&1; echo '==> Removing Port Forwarding'")
+    end
+end

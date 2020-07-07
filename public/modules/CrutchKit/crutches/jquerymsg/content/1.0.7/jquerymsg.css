@@ -1,0 +1,25 @@
+#jquery-msg-overlay {
+    z-index: 99999;
+    cursor: wait;
+}
+
+#jquery-msg-bg {
+    -moz-opacity: 0.6;
+    -khtml-opacity: 0.6;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    background: black;
+}
+
+.jquery-msg-content {
+    -webkit-background-clip: padding-box;
+    padding: 15px;
+}
+
+.black-on-white .jquery-msg-content {
+
+}
+
+.white-on-black .jquery-msg-content {
+
+}

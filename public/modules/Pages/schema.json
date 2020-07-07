@@ -1,0 +1,68 @@
+[
+  {
+    "table": "werock_pages",
+    "engine": "MyISAM",
+    "collation": "latin1",
+    "row_format": "Dynamic",
+    "fields": [
+      {
+        "name": "werock_page_id",
+        "type": "int(11)",
+        "null": "NO",
+        "default": null,
+        "extra": "auto_increment",
+        "comments": ""
+      },
+      {
+        "name": "werock_page_title",
+        "type": "varchar(155)",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Title&validation=*&helper=Title of page&placeholder=ie: Super great title"
+      },
+      {
+        "name": "werock_page_description",
+        "type": "text",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Description&validation=&helper=Describe this building&placeholder=ie: About the page"
+      },
+      {
+        "name": "werock_page_html",
+        "type": "text",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": "label=Html&validation=*&helper=Page html&placeholder=ie: <b>fancy page</b>"
+      },
+      {
+        "name": "werock_page_date_added",
+        "type": "datetime",
+        "null": "YES",
+        "default": null,
+        "extra": "",
+        "comments": ""
+      },
+      {
+        "name": "werock_page_last_modified",
+        "type": "timestamp",
+        "null": "YES",
+        "default": "CURRENT_TIMESTAMP",
+        "extra": "on update CURRENT_TIMESTAMP",
+        "comments": ""
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "type": "PRIMARY",
+        "method": "BTREE",
+        "fields": [
+          "werock_page_id"
+        ]
+      }
+    ]
+  }
+]

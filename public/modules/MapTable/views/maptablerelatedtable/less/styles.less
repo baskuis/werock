@@ -1,0 +1,41 @@
+.maptable_related_table {
+  margin: 20px 0;
+  .control {
+    padding: 5px 17px;
+    background-color: #ddd;
+    color: #333;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    height: 29px;
+    margin: 0 1px;
+    .related-icon {
+      position: absolute;
+      top: 8px;
+      right: 11px;
+      color: #333333;
+    }
+    &.active {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      .related-icon {
+        color: #333333;
+        text-shadow: 1px 1px #ffffff;
+      }
+    }
+  }
+  .body {
+    display: none;
+    &.open {
+      display: block;
+    }
+    iframe {
+      width: 100%;
+      min-height: 300px;
+      border: 1px solid #ddd;
+      overflow: hidden;
+    }
+  }
+}
+

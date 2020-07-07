@@ -1,0 +1,105 @@
+.engagementcollectemail {
+  .modal {
+    .modal-dialog {
+      .modal-body {
+        &.modal-body-engage {
+          padding: 20px;
+          .engageForm {
+            .form-control {
+              height: 59px;
+              line-height: 57px;
+              background-color: #fff;
+              border: 2px solid #ccc;
+              font-size: 24px;
+              color: #444;
+              &.ng-invalid {
+                border-color: #9f1d1d;
+              }
+              &.md-datepicker {
+                padding: 0;
+              }
+            }
+            textarea.form-control {
+              background-color: #fff;
+              border: 2px solid #ccc;
+              font-size: 24px;
+              line-height: 32px !important;
+              color: #444;
+              min-height: 80px;
+            }
+            .onoffswitch {
+              position: relative;
+              width: 139px;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+            }
+            .onoffswitch-checkbox {
+              display: none;
+            }
+            .onoffswitch-label {
+              display: block;
+              overflow: hidden;
+              cursor: pointer;
+              border: 2px solid #cccccc;
+              border-radius: 33px;
+              box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            }
+            .onoffswitch-inner {
+              display: block;
+              width: 200%;
+              margin-left: -100%;
+              transition: margin 0.3s ease-in 0s;
+            }
+            .onoffswitch-inner:before, .onoffswitch-inner:after {
+              display: block;
+              float: left;
+              width: 50%;
+              height: 49px;
+              padding: 0;
+              line-height: 49px;
+              font-size: 16px;
+              color: white;
+              font-family: Trebuchet, Arial, sans-serif;
+              font-weight: bold;
+              box-sizing: border-box;
+            }
+            .onoffswitch-inner:before {
+              content: "Yes";
+              padding-left: 30px;
+              background-color: #fff;
+              color: #666666;
+            }
+            .onoffswitch-inner:after {
+              content: "No";
+              padding-right: 30px;
+              background-color: #fff;
+              color: #666666;
+              text-align: right;
+            }
+            .onoffswitch-switch {
+              display: block;
+              width: 38px;
+              margin: 8px;
+              background: #ccc;
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: 84px;
+              border: 2px solid #999999;
+              border-radius: 33px;
+              transition: all 0.3s ease-in 0s;
+            }
+            .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+              margin-left: 0;
+            }
+            .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+              right: 0px;
+              background-color: #ccc;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+[
+    {
+        "table": "werock_messages",
+        "engine": "InnoDB",
+        "collation": "latin1",
+        "row_format": "Compact",
+        "fields": [
+            {
+                "name": "werock_message_id",
+                "type": "int(7)",
+                "null": "NO",
+                "default": null,
+                "extra": "auto_increment",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_message_body",
+                "type": "text",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_message_date_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_message_id"
+                ]
+            },
+            {
+                "name": "x_lookup",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_user_id"
+                ]
+            }
+        ]
+    },
+    {
+        "table": "werock_message_addressees",
+        "engine": "InnoDB",
+        "collation": "latin1",
+        "row_format": "Compact",
+        "fields": [
+            {
+                "name": "werock_message_addressee_id",
+                "type": "int(6)",
+                "null": "NO",
+                "default": null,
+                "extra": "auto_increment",
+                "comments": ""
+            },
+            {
+                "name": "werock_message_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_user_id",
+                "type": "int(6)",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_message_addressee_date_added",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            },
+            {
+                "name": "werock_message_addressee_date_read",
+                "type": "datetime",
+                "null": "YES",
+                "default": null,
+                "extra": "",
+                "comments": ""
+            }
+        ],
+        "indexes": [
+            {
+                "name": "",
+                "type": "PRIMARY",
+                "method": "BTREE",
+                "fields": [
+                    "werock_message_addressee_id"
+                ]
+            },
+            {
+                "name": "x_lookup",
+                "type": "INDEX",
+                "method": "BTREE",
+                "fields": [
+                    "werock_message_id",
+                    "werock_user_id"
+                ]
+            }
+        ]
+    }
+]

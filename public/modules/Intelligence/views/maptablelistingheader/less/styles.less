@@ -1,0 +1,18 @@
+.listing-header {
+  .show-graphs {
+    position: absolute;
+    top: 9px;
+    right: 45px;
+    cursor: pointer;
+    display: none;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 16px;
+    @media (max-width: @desktopbreakpoint) {
+      display: block;
+    }
+    &.active {
+      color: #ffffff;
+      text-shadow: 1px 1px 1px #666;
+    }
+  }
+}

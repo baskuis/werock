@@ -1,0 +1,18 @@
+* * * * * /bin/bash /var/www/vhosts/werock.com/schedule.sh
+* * * * * rm /var/log/mysql/mariadb-bin.*
+0 * * * * /usr/sbin/logrotate -vf /etc/logrotate.d/werock
+50 0,12 * * * /usr/bin/certbot -q renew --pre-hook '/bin/run-parts /etc/letsencrypt/pre-hook.d/' --post-hook '/bin/run-parts /etc/letsencry$
+0 0 * * * apt-get update -y ; apt-get upgrade -y ; apt-get dist-upgrade -y ; apt-get autoremove -y
+0 5,17 * * * /usr/bin/certbot renew
+
+
+20 2 * * *  echo > /var/www/vhosts/werock.com/rsssearchhub.log
+20 2 * * *  echo > /var/www/vhosts/werock.com/myregistryhub.log
+20 2 * * *  echo > /var/www/vhosts/werock.com/innovationhitsquad
+20 2 * * *  echo > /var/www/vhosts/werock.com/innovationhitsquadukora.log
+20 2 * * *  echo > /var/www/vhosts/werock.com/digstack.log
+20 2 * * *  echo > /var/www/vhosts/werock.com/werockukora.log
+
+
+30 3 * * 3,6 mysql --user=root --password=root --database=myregistryhub --execute="truncate werock_intelligence"
+40 3 * * 2,5 mysql --user=root --password=root --database=rsssearchhub.com --execute="truncate werock_intelligence"

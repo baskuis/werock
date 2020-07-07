@@ -1,0 +1,218 @@
+[{
+    "table" : "werock_media",
+    "engine" : "MyISAM",
+    "collation" : "latin1",
+    "row_format" : "DYNAMIC",
+    "fields" : [
+        {
+            "name" : "werock_media_id",
+            "type" : "int(6)",
+            "null" : "no",
+            "default" : "",
+            "extra" : "AUTO_INCREMENT",
+            "comments" : ""
+        },
+        {
+            "name" : "werock_media_name",
+            "type" : "varchar(155)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Media name&placeholder=Enter media name"
+        },
+        {
+            "name" : "werock_media_hash",
+            "type" : "varchar(155)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Media hash"
+        },
+        {
+            "name" : "werock_media_description",
+            "type" : "text",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Media description"
+        },
+        {
+            "name" : "werock_media_type",
+            "type" : "varchar(85)",
+            "null" : "yes",
+            "default" : "NULL",
+            "extra" : "",
+            "comments" : "label=Media type&placeholder=Enter media type"
+        },
+        {
+            "name" : "werock_media_size",
+            "type" : "int(8)",
+            "null" : "no",
+            "default" : "'0'",
+            "extra" : "",
+            "comments" : "label=Media size"
+        },
+        {
+            "name" : "werock_media_background_color",
+            "type" : "varchar(20)",
+            "null" : "no",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Media background color"
+        },
+        {
+            "name" : "werock_media_width",
+            "type" : "int(8)",
+            "null" : "no",
+            "default" : "'0'",
+            "extra" : "",
+            "comments" : "label=Media width"
+        },
+        {
+            "name" : "werock_media_height",
+            "type" : "int(8)",
+            "null" : "no",
+            "default" : "'0'",
+            "extra" : "",
+            "comments" : "label=Media height"
+        },
+        {
+            "name" : "werock_media_data",
+            "type" : "longblob",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Media data"
+        },
+        {
+            "name" : "werock_media_date_added",
+            "type" : "datetime",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : ""
+        },
+        {
+            "name" : "werock_media_last_modified",
+            "type" : "timestamp",
+            "null" : "no",
+            "default" : "CURRENT_TIMESTAMP",
+            "extra" : "ON UPDATE CURRENT_TIMESTAMP"
+        }
+    ],
+    "indexes" : [
+        {
+            "type" : "PRIMARY",
+            "name" : "",
+            "fields" : ["werock_media_id"]
+        },
+        {
+            "type" : "INDEX",
+            "method" : "BTREE",
+            "name" : "x_field",
+            "fields" : ["werock_media_hash"]
+        },
+        {
+            "type" : "FULLTEXT",
+            "name" : "x_text",
+            "fields" : ["werock_media_name", "werock_media_description"],
+            "comments" : "full text lookup index"
+        },
+        {
+            "type" : "INDEX",
+            "method" : "BTREE",
+            "name" : "x_type",
+            "fields" : ["werock_media_type"],
+            "comments" : "Just a comment on media type index 1"
+        },
+        {
+            "type" : "INDEX",
+            "method" : "BTREE",
+            "name" : "x_added",
+            "fields" : ["werock_media_date_added"]
+        }
+    ],
+    "comments" : "Media"
+},{
+    "table" : "werock_media_versions",
+    "engine" : "MyISAM",
+    "collation" : "latin1",
+    "row_format" : "DYNAMIC",
+    "fields" : [
+        {
+            "name" : "werock_media_version_id",
+            "type" : "int(6)",
+            "null" : "no",
+            "default" : "",
+            "extra" : "AUTO_INCREMENT",
+            "comments" : ""
+        },
+        {
+            "name" : "werock_media_id",
+            "type" : "int(6)",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Media item"
+        },
+        {
+            "name" : "werock_media_version_width",
+            "type" : "int(8)",
+            "null" : "no",
+            "default" : "'0'",
+            "extra" : "",
+            "comments" : "label=Media version width"
+        },
+        {
+            "name" : "werock_media_version_height",
+            "type" : "int(8)",
+            "null" : "no",
+            "default" : "'0'",
+            "extra" : "",
+            "comments" : "label=Media version height"
+        },
+        {
+            "name" : "werock_media_version_data",
+            "type" : "longblob",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : "label=Media version data"
+        },
+        {
+            "name" : "werock_media_version_date_added",
+            "type" : "datetime",
+            "null" : "yes",
+            "default" : "",
+            "extra" : "",
+            "comments" : ""
+        },
+        {
+            "name" : "werock_media_version_last_modified",
+            "type" : "timestamp",
+            "null" : "no",
+            "default" : "CURRENT_TIMESTAMP",
+            "extra" : "ON UPDATE CURRENT_TIMESTAMP"
+        }
+    ],
+    "indexes" : [
+        {
+            "type" : "PRIMARY",
+            "name" : "",
+            "fields" : ["werock_media_version_id"]
+        },
+        {
+            "type" : "INDEX",
+            "method" : "BTREE",
+            "name" : "x_field",
+            "fields" : ["werock_media_id","werock_media_version_width","werock_media_version_height"]
+        },
+        {
+            "type" : "INDEX",
+            "method" : "BTREE",
+            "name" : "x_added",
+            "fields" : ["werock_media_version_date_added"]
+        }
+    ],
+    "comments" : "Media"
+}]

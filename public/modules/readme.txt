@@ -1,0 +1,1 @@
+application modules .. will need to be installed when plugins require them as dependencies
